@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema                                                                                    
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema">                                              
+ 
+	<xsd:include schemaLocation="verbe.xsd"/>
+ 
+	<xsd:simpleType name="type.modeId">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="INDICATIF"></xsd:enumeration>
+			<xsd:enumeration value="CONDITIONNEL"></xsd:enumeration>
+			<xsd:enumeration value="SUBJONCTIF"></xsd:enumeration>
+			<xsd:enumeration value="IMPERATIF"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType> 
+ 
+ 	<xsd:simpleType name="type.tempsId">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PRESENT"></xsd:enumeration>
+			<xsd:enumeration value="FUTUR"></xsd:enumeration>
+			<xsd:enumeration value="PASSE"></xsd:enumeration>
+			<xsd:enumeration value="IMPARFAIT"></xsd:enumeration>
+			<xsd:enumeration value="PLUS_QUE_PARFAIT"></xsd:enumeration>
+			<xsd:enumeration value="PASSE_COMPOSE"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType> 
+	
+	 <xsd:simpleType name="type.personneId">
+		<xsd:restriction base="xsd:short">
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="2"></xsd:enumeration>
+			<xsd:enumeration value="3"></xsd:enumeration>
+			<xsd:enumeration value="4"></xsd:enumeration>
+			<xsd:enumeration value="5"></xsd:enumeration>
+			<xsd:enumeration value="6"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>                                                                                                                                                        
+
+	<xsd:complexType name="type.conjugaisonElement">
+		<xsd:all> 	               
+			<xsd:element name="verbe" type="type.verbeElement" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="mode" type="type.modeId" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="temps" type="type.tempsId" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="personne" type="type.personneId" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="valeur" type="xsd:string" minOccurs="1" maxOccurs="1" />									
+		</xsd:all>                                                        
+ 	</xsd:complexType> 
+
+ 	<xsd:element name="conjugaison" type="type.conjugaisonElement" />
+
+ </xsd:schema>

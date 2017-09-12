@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema                                                                                    
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema">                                              
+ 
+	<xsd:include schemaLocation="conjugaison.xsd"/>
+	
+	<xsd:complexType name="type.tempsElement">
+		<xsd:sequence>
+			<xsd:element name="je" type="xsd:string" />
+			<xsd:element name="tu" type="xsd:string" />
+			<xsd:element name="il" type="xsd:string" />
+			<xsd:element name="nous" type="xsd:string" />
+			<xsd:element name="vous" type="xsd:string" />
+			<xsd:element name="ils" type="xsd:string" />									
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="type.tempsImperatifElement">
+		<xsd:sequence>
+			<xsd:element name="tu" type="xsd:string" />
+			<xsd:element name="nous" type="xsd:string" />
+			<xsd:element name="vous" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="type.indicatifElement">
+		<xsd:sequence>
+			<xsd:element name="present" type="type.tempsElement" />
+			<xsd:element name="futur" type="type.tempsElement" />
+			<xsd:element name="imparfait" type="type.tempsElement" />
+			<xsd:element name="plus-que-parfait" type="type.tempsElement" />
+			<xsd:element name="passe-simple" type="type.tempsElement" />
+			<xsd:element name="passe-compose" type="type.tempsElement" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="type.conditionnelElement">
+		<xsd:sequence>
+			<xsd:element name="present" type="type.tempsElement" />
+			<xsd:element name="passe" type="type.tempsElement" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="type.subjonctifElement">
+		<xsd:sequence>
+			<xsd:element name="present" type="type.tempsElement" />
+			<xsd:element name="passe" type="type.tempsElement" />	
+			<xsd:element name="imparfait" type="type.tempsElement" />
+			<xsd:element name="plus-que-parfait" type="type.tempsElement" />
+		</xsd:sequence>
+	</xsd:complexType>	
+
+	<xsd:complexType name="type.imperatifElement">
+		<xsd:sequence>
+			<xsd:element name="present" type="type.tempsImperatifElement" />
+			<xsd:element name="passe" type="type.tempsImperatifElement" />
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+	<xsd:complexType name="type.conjugaisonsElement">
+		<xsd:sequence>
+			<xsd:element name="verbe" type="type.verbeElement" />
+			<xsd:element name="indicatif" type="type.indicatifElement" />
+			<xsd:element name="conditionnel" type="type.conditionnelElement" />
+			<xsd:element name="subjonctif" type="type.subjonctifElement" />
+			<xsd:element name="imperatif" type="type.imperatifElement" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="conjugaisons" type="type.conjugaisonsElement"></xsd:element>
+
+ </xsd:schema>
